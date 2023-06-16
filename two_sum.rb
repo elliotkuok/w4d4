@@ -16,23 +16,26 @@ def sorting(arr, target_sum)
     (0...sorted_arr.length).each do |i|
         num2 = target_sum - sorted_arr[i]
         # p my_bsearch(sorted_arr, num2)
-        return true if my_bsearch(sorted_arr, num2)
+        return true if !my_bsearch(sorted_arr, num2).nil?
     end
     false
 end
 
 def my_bsearch(arr, target)
-    return false if arr.empty?
+    return nil if arr.empty?
     mid = arr.length / 2
     if arr[mid] == target
-      return true  
+      return mid
     elsif arr[mid] < target
       i = my_bsearch(arr[mid + 1..-1], target)
-      i.nil? ? false : i
+      i.nil? ? nil : mid + 1 + i
     else
       my_bsearch(arr[0...mid], target)
     end
 end
+arr = [0, 1, 5, 7]
+p sorting(arr, 8) # => should be true
+p sorting(arr, 10) # => should be false
 
 def hash_map(arr, target_sum)
     bank = {}
@@ -46,7 +49,3 @@ def hash_map(arr, target_sum)
     end
     return false
 end 
-
-arr = [0, 1, 5, 7]
-p hash_map(arr, 8) # => should be true
-p hash_map(arr, 10) # => should be false

@@ -35,28 +35,3 @@ def fourth_anagrams?(word1,word2)  # linear?
     # p counter
     counter.values.all?{|v| v.zero?}
 end
-
-
-# p first_anagrams?("gizmo", "sally")    #=> false
-# p first_anagrams?("elvis", "lives")
-# p secord_anagrams?("gizmo", "sally")    #=> false
-# p secord_anagrams?("elvis", "lives")
-# p secord_anagrams?("iiica", "iiacc")
-# p third_anagrams?("gizmo", "sally")    #=> false
-# p third_anagrams?("elvis", "lives")
-# p third_anagrams?("iiica", "iiacc")
-p fourth_anagrams?("gizmo", "sally")    #=> false
-p fourth_anagrams?("elvis", "lives")
-p fourth_anagrams?("iiica", "iiacc")
-
-
-def quadruple(arr)  
-    arr.map do |num|
-        arr.each do |num2|
-            num * num2
-        end
-    end
-end
-
-
-arr = [1,2,3]
